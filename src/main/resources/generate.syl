@@ -1,0 +1,27 @@
+create schema library;
+create table library.books(
+    idBook int(6) unsigned auto_increment primary key,
+    bookTitle varchar(50) not null,
+    authorName varchar(30) not null,
+    numberPages int(4) not null,
+    codeISBN varchar(19) not null
+);
+create table library.users(
+    idUser int(6) unsigned auto_increment primary key ,
+    userName varchar(25) not null,
+    e_mail varchar(25) not null,
+    firstName varchar(20)not null,
+    lastName varchar(20)not null,
+    phoneNumber varchar(10)
+);
+create table library.loan(
+    idLoan int(5)unsigned auto_increment primary key,
+    idBook int(6) unsigned,
+    idUser int(6) unsigned,
+    foreign key (idBook) references library.books(idBook),
+    foreign key (idUser) references library.users(idUser)
+);
+insert into library.books(bookTitle, authorName, numberPages, codeISBN) VALUES
+('Canonicatul Dunei', 'Frank Herbert', '647', '978-606-579-700-0');
+insert into library.books(bookTitle, authorName, numberPages, codeISBN) values
+('O istorie a Orientului Mijlociu', 'Peter Mansfield', '535', '978-973-50-5076-4');
