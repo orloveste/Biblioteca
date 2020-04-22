@@ -26,7 +26,7 @@ public class Book {
         return this.ISBN;
     }
 
-    public boolean isCheckedOut() {
+    public boolean getIsCheckedOut() {
         return this.isCheckedOut;
     }
 
